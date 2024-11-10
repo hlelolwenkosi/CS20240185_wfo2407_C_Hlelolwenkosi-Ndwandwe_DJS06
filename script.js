@@ -15,10 +15,9 @@ const products = [
 ]
 
 /**
- * BASIC EXERCISES
+ BASIC EXERCISES
  */
 
-// 1.
 // Use forEach to console.log each name
 console.log('Exercise 1:')
 names.forEach(name => console.log(name))
@@ -27,37 +26,31 @@ provinces.forEach(province => console.log(province))
 // Use forEach to console.log each name with matching province
 names.forEach((name, index) => console.log(`${name} (${provinces[index]})`))
 
-// 2.
 // Use map to create an array of province names in all uppercase
 console.log('Exercise 2:')
 const upperProvinces = provinces.map(province => province.toUpperCase())
 console.log(upperProvinces)
 
-// 3.
 // Create a new array with map that contains the length of each name
 console.log('Exercise 3:')
 const nameLengths = names.map(name => name.length)
 console.log(nameLengths)
 
-// 4.
 // Use sort to sort all provinces alphabetically
 console.log('Exercise 4:')
 const sortedProvinces = [...provinces].sort()
 console.log(sortedProvinces)
 
-// 5.
 // Use filter to remove all provinces that have the word 'Cape' in them
 console.log('Exercise 5:')
 const filteredProvinces = provinces.filter(province => !province.includes('Cape'))
 console.log(filteredProvinces.length)
 
-// 6.
 // Using map and some, create a boolean array by checking if a name contains 'S'
 console.log('Exercise 6:')
 const containsS = names.map(name => name.toLowerCase().includes('s'))
 console.log(containsS)
 
-// 7.
 // Use reduce to create an object where the names are keys and the provinces are values
 console.log('Exercise 7:')
 const namesAndProvinces = names.reduce((obj, name, index) => {
@@ -67,20 +60,17 @@ const namesAndProvinces = names.reduce((obj, name, index) => {
 console.log(namesAndProvinces)
 
 /**
- *  * ADVANCED EXERCISES (Single console.log statements)
+ ADVANCED EXERCISES 
  */
 
-// 1.
 // Use forEach to console.log each product name
 console.log('Advanced - Exercise 1:')
 console.log(products.forEach(item => console.log(item.product)))
 
-// 2.
 // Use filter to create array with products that have names of 5 characters or less
 console.log('Advanced - Exercise 2:')
 console.log(products.filter(item => item.product.length <= 5))
 
-// 3.
 // Use filter to create array of prices that are numbers, convert string prices to numbers, and calculate total with reduce
 console.log('Advanced - Exercise 3:')
 console.log(products
@@ -88,13 +78,11 @@ console.log(products
     .map(item => Number(item.price))
     .reduce((total, price) => total + price, 0))
 
-// 4.
 // Use reduce to concatenate all product names
 console.log('Advanced - Exercise 4:')
 console.log(products.reduce((str, item, index) => 
     index === 0 ? item.product : `${str}, ${item.product}`, ''))
 
-// 5.
 // Use reduce to find highest and lowest-priced items
 console.log('Advanced - Exercise 5:')
 console.log((() => {
@@ -106,7 +94,6 @@ console.log((() => {
     return `Highest: ${highest.product}. Lowest: ${lowest.product}`
 })())
 
-// 6.
 // Using Object.entries and reduce, recreate the products array with modified keys
 console.log('Advanced - Exercise 6:')
 console.log(products.map(item => ({
