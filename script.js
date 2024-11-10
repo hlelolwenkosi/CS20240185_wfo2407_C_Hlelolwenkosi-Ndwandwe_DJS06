@@ -67,3 +67,49 @@ const namesAndProvinces = names.reduce((obj, name, index) => {
 console.log(namesAndProvinces)
 
 /**
+ *  * ADVANCED EXERCISES (Single console.log statements)
+ */
+
+// 1.
+// Use forEach to console.log each product name
+console.log('Advanced - Exercise 1:')
+console.log(products.forEach(item => console.log(item.product)))
+
+// 2.
+// Use filter to create array with products that have names of 5 characters or less
+console.log('Advanced - Exercise 2:')
+console.log(products.filter(item => item.product.length <= 5))
+
+// 3.
+// Use filter to create array of prices that are numbers, convert string prices to numbers, and calculate total with reduce
+console.log('Advanced - Exercise 3:')
+console.log(products
+    .filter(item => item.price !== '' && item.price !== ' ')
+    .map(item => Number(item.price))
+    .reduce((total, price) => total + price, 0))
+
+// 4.
+// Use reduce to concatenate all product names
+console.log('Advanced - Exercise 4:')
+console.log(products.reduce((str, item, index) => 
+    index === 0 ? item.product : `${str}, ${item.product}`, ''))
+
+// 5.
+// Use reduce to find highest and lowest-priced items
+console.log('Advanced - Exercise 5:')
+console.log((() => {
+    const validProducts = products.filter(item => item.price !== '' && item.price !== ' ')
+    const highest = validProducts.reduce((max, item) => 
+        Number(item.price) > Number(max.price) ? item : max, validProducts[0])
+    const lowest = validProducts.reduce((min, item) => 
+        Number(min.price) > Number(item.price) ? item : min, validProducts[0])
+    return `Highest: ${highest.product}. Lowest: ${lowest.product}`
+})())
+
+// 6.
+// Using Object.entries and reduce, recreate the products array with modified keys
+console.log('Advanced - Exercise 6:')
+console.log(products.map(item => ({
+    name: item.product,
+    cost: item.price
+})))
